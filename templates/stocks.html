@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pick Stocks</title>
+    <style>
+      body { font-family: sans-serif; } 
+      h1, h2 { text-align: center; }
+      .intro-text { margin-bottom: 20px; }
+      .special-offer { 
+          background-color: #f0f0f0; 
+          padding: 20px; 
+          border: 1px solid #ddd;
+          margin-bottom: 20px;
+      }
+      .testimonials { margin-bottom: 20px; } 
+      /* Menu Styling */
+      nav ul {
+          list-style-type: none;
+          padding: 0;
+          margin: 20px 0;
+          text-align: center;
+      }
+      nav li {
+          display: inline;
+          margin-right: 20px;
+      }
+    </style>
+    </head>
+    <body>
+    <nav>
+    <ul>
+      <li><a href="/">Home</a></li>  
+      <li><a href="buffett">Invest like Warren Buffet</a></li>
+      <li><a href="stocks">Pick Stocks</a></li>
+      <li><a href="methodology">Value Investing</a></li>
+    </ul>
+    </nav>
+    <p>Here are the stocks trading for less than their true value that I found today:</p>
+      <div class="stock-table">
+        {{ top_symbols_html }}
+      </div>
+
+      <h2>Growth Data:</h2>
+      <div class="stock-table">
+          {{ growth_html }}
+      </div>
+      <h2>Dividends Data:</h2>
+      <div class="stock-table">
+          {{ dividends_html }}
+      </div>
+      <h2>Health Data:</h2>
+      <div class="stock-table">
+          {{ health_html }}
+      </div>
+      <h2>G-Number Data:</h2>
+      <div class="stock-table">
+          {{ gnumber_html }}
+      </div>
+      <h2>Market Cap Data:</h2>
+      <div class="stock-table">
+          {{ marketcap_html }}
+      </div>
+      
+      <p>Pick one and start growing your future wealth!</p>
+
+      <small><i>This is for informational purposes only. For financial advice, consult a professional.</i></small><br>
+      <small><i>We are in beta testing, please answer this 3 simple multiple choice <a href="https://forms.gle/5TZuPSrTDgxcpNx1A">questions</a> to help us improve.</i></small><br>
+
+</body>
+</html>
