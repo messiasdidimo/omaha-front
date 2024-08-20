@@ -283,7 +283,7 @@ def pick_stocks():
   
         growth_data = growth_data_response.json()
         dividends_data = dividends_data_response.json()
-        # health_data = health_data_response.json()
+        health_data = health_data_response.json()
         gnumber_data = gnumber_data_response.json()
         marketcap_data = marketcap_data_response.json()
         print('marketcap_data:', marketcap_data)
@@ -291,7 +291,7 @@ def pick_stocks():
         
         growth_df = pd.DataFrame(growth_data)
         dividends_df = pd.DataFrame(dividends_data)
-        # health_df = pd.DataFrame(health_data)
+        health_df = pd.DataFrame(health_data)
         gnumber_df = pd.DataFrame(gnumber_data)
         marketcap_df = pd.DataFrame(marketcap_data)
         print('marketcap_df', marketcap_df)
@@ -299,7 +299,7 @@ def pick_stocks():
         
         growth_html = growth_df.to_html(index=False)
         dividends_html = dividends_df.to_html(index=False)
-        # health_html = health_df.to_html(index=False)
+        health_html = health_df.to_html(index=False)
         gnumber_html = gnumber_df.to_html(index=False)
         marketcap_html = marketcap_df.to_html(index=False)
         print('marketcap_html', marketcap_html)
@@ -315,7 +315,7 @@ def pick_stocks():
                            # top_symbols_html=Markup(top_symbols_html),
                            growth_html=Markup(growth_html),
                            dividends_html=Markup(dividends_html),
-                           # health_html=Markup(health_html),
+                           health_html=Markup(health_html),
                            gnumber_html=Markup(gnumber_html),
                            marketcap_html=Markup(marketcap_html)
                           )
