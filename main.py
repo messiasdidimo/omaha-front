@@ -282,21 +282,21 @@ def pick_stocks():
         # top_symbols_html = common_symbols_df.to_html(index=False)  # Convert to HTML table
   
         # growth_data = growth_data_response.json()
-        # dividends_data = dividends_data_response.json()
+        dividends_data = dividends_data_response.json()
         # health_data = health_data_response.json()
         gnumber_data = gnumber_data_response.json()
         # marketcap_data = marketcap_data_response.json()
-        # # Flatten the data (if needed) and convert to DataFrames
+        # # Convert data to DataFrames
         
         # growth_df = pd.DataFrame(flatten_data(growth_data))
-        # dividends_df = pd.DataFrame(flatten_data(dividends_data))
+        dividends_df = pd.DataFrame(dividends_data)
         # health_df = pd.DataFrame(flatten_data(health_data))
         gnumber_df = pd.DataFrame(gnumber_data)
         # marketcap_df = pd.DataFrame(flatten_data(marketcap_data))
         # # Convert DataFrames to HTML tables
         
         # growth_html = growth_df.to_html(index=False)
-        # dividends_html = dividends_df.to_html(index=False)
+        dividends_html = dividends_df.to_html(index=False)
         # health_html = health_df.to_html(index=False)
         gnumber_html = gnumber_df.to_html(index=False)
         # marketcap_html = marketcap_df.to_html(index=False)
@@ -311,7 +311,7 @@ def pick_stocks():
     return render_template('stocks.html', 
                            # top_symbols_html=Markup(top_symbols_html),
                            # growth_html=Markup(growth_html),
-                           # dividends_html=Markup(dividends_html),
+                           dividends_html=Markup(dividends_html),
                            # health_html=Markup(health_html),
                            gnumber_html=Markup(gnumber_html),
                            # marketcap_html=Markup(marketcap_html)
