@@ -272,35 +272,36 @@ def pick_stocks():
     marketcap_data_response = requests.get(marketcap_data_url)
     # Process and convert data to HTML tables
     try:
-        common_symbols_data = common_symbols_response.json()
-        flattened_data = []
-        for company_data in common_symbols_data:
-            for symbol, metrics in company_data.items():
-                flattened_data.append({'symbol': symbol, **metrics})
-        # Assuming it returns a list of dictionaries representing each symbol, convert it to a Pandas DataFrame
-        common_symbols_df = pd.DataFrame(flattened_data)
-        top_symbols_html = common_symbols_df.to_html(index=False)  # Convert to HTML table
+        # common_symbols_data = common_symbols_response.json()
+        # flattened_data = []
+        # for company_data in common_symbols_data:
+        #     for symbol, metrics in company_data.items():
+        #         flattened_data.append({'symbol': symbol, **metrics})
+        # # Assuming it returns a list of dictionaries representing each symbol, convert it to a Pandas DataFrame
+        # common_symbols_df = pd.DataFrame(flattened_data)
+        # top_symbols_html = common_symbols_df.to_html(index=False)  # Convert to HTML table
   
-        growth_data = growth_data_response.json()
-        dividends_data = dividends_data_response.json()
-        health_data = health_data_response.json()
+        # growth_data = growth_data_response.json()
+        # dividends_data = dividends_data_response.json()
+        # health_data = health_data_response.json()
         gnumber_data = gnumber_data_response.json()
-        marketcap_data = marketcap_data_response.json()
-        # Flatten the data (if needed) and convert to DataFrames
+        # marketcap_data = marketcap_data_response.json()
+        # # Flatten the data (if needed) and convert to DataFrames
         
-        growth_df = pd.DataFrame(flatten_data(growth_data))
-        dividends_df = pd.DataFrame(flatten_data(dividends_data))
-        health_df = pd.DataFrame(flatten_data(health_data))
-        gnumber_df = pd.DataFrame(flatten_data(gnumber_data))
-        marketcap_df = pd.DataFrame(flatten_data(marketcap_data))
-        # Convert DataFrames to HTML tables
+        # growth_df = pd.DataFrame(flatten_data(growth_data))
+        # dividends_df = pd.DataFrame(flatten_data(dividends_data))
+        # health_df = pd.DataFrame(flatten_data(health_data))
+        gnumber_df = pd.DataFrame(gnumber_data)
+        # marketcap_df = pd.DataFrame(flatten_data(marketcap_data))
+        # # Convert DataFrames to HTML tables
         
-        growth_html = growth_df.to_html(index=False)
-        dividends_html = dividends_df.to_html(index=False)
-        health_html = health_df.to_html(index=False)
+        # growth_html = growth_df.to_html(index=False)
+        # dividends_html = dividends_df.to_html(index=False)
+        # health_html = health_df.to_html(index=False)
         gnumber_html = gnumber_df.to_html(index=False)
-        marketcap_html = marketcap_df.to_html(index=False)
+        # marketcap_html = marketcap_df.to_html(index=False)
     except Exception as e:
+        print('exception')
         top_symbols_html = "<p>No common symbols data found for today.</p>"
         growth_html = "<p>No growth data found for today.</p>"
         dividends_html = "<p>No dividends data found for today.</p>"
@@ -308,12 +309,13 @@ def pick_stocks():
         gnumber_html = "<p>No gnumber data found for today.</p>"
         marketcap_html = "<p>No market cap data found for today.</p>"
     return render_template('stocks.html', 
-                           top_symbols_html=Markup(top_symbols_html),
-                           growth_html=Markup(growth_html),
-                           dividends_html=Markup(dividends_html),
-                           health_html=Markup(health_html),
+                           # top_symbols_html=Markup(top_symbols_html),
+                           # growth_html=Markup(growth_html),
+                           # dividends_html=Markup(dividends_html),
+                           # health_html=Markup(health_html),
                            gnumber_html=Markup(gnumber_html),
-                           marketcap_html=Markup(marketcap_html))
+                           # marketcap_html=Markup(marketcap_html)
+                          )
 
 
 # Define route for the "How to Invest like Warren Buffet" button
